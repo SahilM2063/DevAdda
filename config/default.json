@@ -1,3 +1,4 @@
 {
-    "mongoURI": "mongodb+srv://SahilMakadia:Sahil..DevAdda@devaddacluster.cxikmiv.mongodb.net/?retryWrites=true&w=majority"
+    "mongoURI": "mongodb+srv://SahilMakadia:Sahil..DevAdda@devaddacluster.cxikmiv.mongodb.net/?retryWrites=true&w=majority",
+    "jwtToken": "OnePieceIsReal"
 }
