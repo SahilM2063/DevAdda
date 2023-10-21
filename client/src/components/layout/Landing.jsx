@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Landing = () => {
   return (
@@ -17,14 +18,19 @@ const Landing = () => {
         <div className="max-w-screen-lg">
           <h1 className="mb-8 text-5xl font-bold">A Place For Developers</h1>
           <p className="mb-8 text-base tracking-wide max-w-screen-md text-center">
-            Welcome to <span className="font-bold text-[17px]">DevAdda</span>, your online hub for connecting with fellow
-            developers. We are all about bringing coders together in one space
-            to discuss, collaborate, and share their passion for coding. Whether
-            you are a seasoned pro or just starting out, DevAdda is your place
-            to meet, learn, and grow.
+            Welcome to <span className="font-bold text-[17px]">DevAdda</span>,
+            your online hub for connecting with fellow developers. We are all
+            about bringing coders together in one space to discuss, collaborate,
+            and share their passion for coding. Whether you are a seasoned pro
+            or just starting out, DevAdda is your place to meet, learn, and
+            grow.
           </p>
-          <button className="btn px-6 mx-2">Register</button>
-          <button className="btn px-6 mx-2">Login</button>
+          <Link to={"/register"}>
+            <button className="btn px-6 mx-2">Register</button>
+          </Link>
+          <Link to={"/login"}>
+            <button className="btn px-6 mx-2">Login</button>
+          </Link>
         </div>
       </div>
     </div>

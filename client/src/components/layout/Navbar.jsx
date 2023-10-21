@@ -1,10 +1,13 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <div className="navbar bg-base-100 flex shadow-lg md:px-6 px-3">
-      <a className="font-bold normal-case text-3xl flex-1">DevAdda.</a>
+      <Link to={"/"} className="font-bold normal-case text-3xl flex-1">
+        DevAdda.
+      </Link>
       <div className="navbar-start w-10">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -28,13 +31,13 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-xl w-32 right-3"
           >
             <li>
-              <a>Developers</a>
+              <Link to={"/developers"}>Developers</Link>
             </li>
             <li>
-              <a>Register</a>
+              <Link to={"/register"}>Register</Link>
             </li>
             <li>
-              <a>Login</a>
+              <Link to={"/login"}>Login</Link>
             </li>
           </ul>
         </div>
@@ -42,13 +45,13 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 gap-3">
           <li className="text-base">
-            <a>Developers</a>
+            <Link to={"/developers"}>Developers</Link>
           </li>
           <li className="text-base">
-            <a>Register</a>
+            <Link to={"/register"}>Register</Link>
           </li>
           <li className="text-base">
-            <a>Login</a>
+            <Link to={"/login"}>Login</Link>
           </li>
         </ul>
       </div>
