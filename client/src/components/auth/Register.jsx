@@ -1,9 +1,15 @@
+/* eslint-disable react-refresh/only-export-components */
+/* eslint-disable react/prop-types */
+/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { setAlert } from "../../actions/alert.js";
+import PropTypes from "prop-types";
 
-const Register = () => {
+const Register = ({ setAlert }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -20,7 +26,7 @@ const Register = () => {
   const onsubmit = async (e) => {
     e.preventDefault();
     if (password != confirmPass) {
-      console.log("Password doesn't match!");
+      setAlert("password doesn't match", "error", 1800);
     } else {
       console.log("Success");
 
@@ -126,4 +132,6 @@ const Register = () => {
   );
 };
 
-export default Register;
+Register.propTypes = { setAlert: PropTypes.func.isRequired };
+
+export default connect(null, { setAlert })(Register);
