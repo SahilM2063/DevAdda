@@ -7,7 +7,7 @@ const Alert = ({ alerts }) =>
   alerts !== null &&
   alerts.length > 0 &&
   alerts.map((alert) => (
-    <div key={alert.id} className={`alert alert-${alert.alertType} max-w-xl m-auto`}>
+    <div key={alert.id} className={`alert alert-${alert.alertType} max-w-xl m-auto mb-2`}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="stroke-current shrink-0 h-6 w-6"
