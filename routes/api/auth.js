@@ -48,7 +48,7 @@ router.post('/', [
 
         const isMatch = await bcrypt.compare(password, existedUser.password);
 
-        if(!isMatch){
+        if (!isMatch) {
             return res.status(400).json({ errors: [{ msg: "Invalid email or password!" }] });
         }
         // setting jsonwebtoken

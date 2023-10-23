@@ -4,13 +4,14 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { setAlert } from "../../actions/alert.js";
 import { register } from "../../actions/auth.js";
 import PropTypes from "prop-types";
 
-const Register = ({ setAlert, register }) => {
+const Register = ({ setAlert, register, isAuthenticated }) => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -54,6 +55,11 @@ const Register = ({ setAlert, register }) => {
       //   }
     }
   };
+
+  // Redirect if authorized
+  if (isAuthenticated) {
+    return navigate("/");
+  }
 
   return (
     <div className="hero min-h-screen bg-base-200 absolute top-0 z-[-1] flex flex-col items-center justify-center pt-16 ">
@@ -130,6 +136,11 @@ const Register = ({ setAlert, register }) => {
 Register.propTypes = {
   setAlert: PropTypes.func.isRequired,
   register: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool,
 };
 
-export default connect(null, { setAlert, register })(Register);
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps, { setAlert, register })(Register);

@@ -1,8 +1,13 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { login } from "../../actions/auth.js";
+import { setAlert } from "../../actions/alert.js";
 
-const Login = () => {
+const Login = ({ login, isAuthenticated }) => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -16,8 +21,13 @@ const Login = () => {
 
   const onsubmit = async (e) => {
     e.preventDefault();
-    console.log("Success");
+    login(email, password);
   };
+
+  // Redirect if logged in
+  if (isAuthenticated) {
+    return navigate("/");
+  }
 
   return (
     <div className="hero min-h-screen bg-base-200 absolute top-0 z-[-1] flex flex-col items-center justify-center">
@@ -35,7 +45,6 @@ const Login = () => {
               name="email"
               value={email}
               onChange={(e) => onchange(e)}
-              required
             />
           </div>
           <div className="form-control">
@@ -49,8 +58,6 @@ const Login = () => {
               name="password"
               value={password}
               onChange={(e) => onchange(e)}
-              required
-              minLength={6}
             />
           </div>
           <div className="form-control mt-6">
@@ -68,4 +75,13 @@ const Login = () => {
   );
 };
 
-export default Login;
+Login.propTypes = {
+  login: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool,
+};
+
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps, { login })(Login);
