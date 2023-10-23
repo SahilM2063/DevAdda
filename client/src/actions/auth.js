@@ -1,4 +1,4 @@
-import { REGISTER_FAIL, REGISTER_SUCCESS, AUTH_ERROR, USER_LOADED, LOGIN_FAIL, LOGIN_SUCCESS } from "./types";
+import { REGISTER_FAIL, REGISTER_SUCCESS, AUTH_ERROR, USER_LOADED, LOGIN_FAIL, LOGIN_SUCCESS, LOGOUT } from "./types";
 import { setAlert } from "./alert.js"
 import axios from "axios";
 import setAuthToken from "../utils/setAuthToken.js"
@@ -82,4 +82,10 @@ export const login = (email, password) => async dispatch => {
             type: LOGIN_FAIL
         })
     }
+};
+
+
+//  logout / clear everything
+export const logout = () => dispatch => {
+    dispatch({ type: LOGOUT });
 }

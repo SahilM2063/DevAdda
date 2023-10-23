@@ -1,8 +1,73 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { connect } from "react-redux";
+import { logout } from "../../actions/auth";
+import PropTypes from "prop-types";
 
-const Navbar = () => {
+const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
+  const AuthLinks = () => {
+    return (
+      <ul className="menu menu-horizontal px-1 gap-3">
+        <li className="text-base">
+          <Link onClick={logout} to={"/"}>
+            Logout
+          </Link>
+        </li>
+      </ul>
+    );
+  };
+
+  const GuestLinks = () => {
+    return (
+      <ul className="menu menu-horizontal px-1 gap-3">
+        <li className="text-base">
+          <Link to={"/developers"}>Developers</Link>
+        </li>
+        <li className="text-base">
+          <Link to={"/register"}>Register</Link>
+        </li>
+        <li className="text-base">
+          <Link to={"/login"}>Login</Link>
+        </li>
+      </ul>
+    );
+  };
+
+  const MenuBoxAuthLinks = () => {
+    return (
+      <ul
+        tabIndex={0}
+        className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-xl w-32 right-3"
+      >
+        <li>
+          <Link to={"/"} onClick={logout}>
+            Logout
+          </Link>
+        </li>
+      </ul>
+    );
+  };
+
+  const MenuBoxGuestLinks = () => {
+    return (
+      <ul
+        tabIndex={0}
+        className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-xl w-32 right-3"
+      >
+        <li>
+          <Link to={"/developers"}>Developers</Link>
+        </li>
+        <li>
+          <Link to={"/register"}>Register</Link>
+        </li>
+        <li>
+          <Link to={"/login"}>Login</Link>
+        </li>
+      </ul>
+    );
+  };
+
   return (
     <div className="navbar bg-base-100 flex shadow-lg md:px-6 px-3">
       <Link to={"/"} className="font-bold normal-case text-3xl flex-1">
@@ -26,37 +91,27 @@ const Navbar = () => {
               />
             </svg>
           </label>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-xl w-32 right-3"
-          >
-            <li>
-              <Link to={"/developers"}>Developers</Link>
-            </li>
-            <li>
-              <Link to={"/register"}>Register</Link>
-            </li>
-            <li>
-              <Link to={"/login"}>Login</Link>
-            </li>
-          </ul>
+          {!loading && (
+            <>
+              {isAuthenticated ? <MenuBoxAuthLinks /> : <MenuBoxGuestLinks />}
+            </>
+          )}
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 gap-3">
-          <li className="text-base">
-            <Link to={"/developers"}>Developers</Link>
-          </li>
-          <li className="text-base">
-            <Link to={"/register"}>Register</Link>
-          </li>
-          <li className="text-base">
-            <Link to={"/login"}>Login</Link>
-          </li>
-        </ul>
+        {!loading && <>{isAuthenticated ? <AuthLinks /> : <GuestLinks />}</>}
       </div>
     </div>
   );
 };
 
-export default Navbar;
+Navbar.propTypes = {
+  logout: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+
+export default connect(mapStateToProps, { logout })(Navbar);
