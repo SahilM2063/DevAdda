@@ -1,17 +1,44 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getcurrentprofile } from "../../actions/profile.js";
+import Spinner from "../layout/Spinner.jsx";
 
-const Dashboard = ({ getcurrentprofile, auth, profile }) => {
+const Dashboard = ({
+  getcurrentprofile,
+  auth: { user },
+  profile: { profile, loading },
+}) => {
   useEffect(() => {
     getcurrentprofile();
   }, []);
 
   return (
-    <div className="w-full h-full justify-center flex items-center">
-      <h1>This Is Dashboard</h1>
+    <div className="w-full h-full justify-center flex flex-col items-center">
+      {loading && profile === null ? (
+        <Spinner />
+      ) : (
+        <>
+          <h1 className="text-2xl font-bold mb-6 mt-2">DASHBOARD</h1>
+          <p>Hello, {user && user.name}</p>
+          {profile !== null ? (
+            <>
+              <p>Has</p>
+            </>
+          ) : (
+            <>
+              <h1>
+                You haven&#39;t completed your profile ?{" "}
+                <Link to={"/create-profile"} className="link">
+                  Create Profile
+                </Link>{" "}
+              </h1>
+            </>
+          )}
+        </>
+      )}
     </div>
   );
 };
