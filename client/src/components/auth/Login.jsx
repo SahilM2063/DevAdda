@@ -1,13 +1,12 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { login } from "../../actions/auth.js";
 import { setAlert } from "../../actions/alert.js";
 
 const Login = ({ login, isAuthenticated }) => {
-  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -26,7 +25,7 @@ const Login = ({ login, isAuthenticated }) => {
 
   // Redirect if logged in
   if (isAuthenticated) {
-    return navigate("/");
+    return <Navigate to={"/dashboard"} />;
   }
 
   return (

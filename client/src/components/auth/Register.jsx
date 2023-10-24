@@ -58,7 +58,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 
   // Redirect if authorized
   if (isAuthenticated) {
-    return navigate("/");
+    return navigate("/dashboard");
   }
 
   return (

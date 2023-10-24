@@ -10,6 +10,9 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     return (
       <ul className="menu menu-horizontal px-1 gap-3">
         <li className="text-base">
+          <Link to={"/dashboard"}>Dashboard</Link>
+        </li>
+        <li className="text-base">
           <Link onClick={logout} to={"/"}>
             Logout
           </Link>
@@ -41,6 +44,9 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-xl w-32 right-3"
       >
         <li>
+          <Link to={"/dashboard"}>Dashboard</Link>
+        </li>
+        <li>
           <Link to={"/"} onClick={logout}>
             Logout
           </Link>
@@ -69,8 +75,8 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   };
 
   return (
-    <div className="navbar bg-base-100 flex shadow-lg md:px-6 px-3">
-      <Link to={"/"} className="font-bold normal-case text-3xl flex-1">
+    <div className="navbar bg-base-100 flex shadow-lg md:px-6 px-3 justify-between">
+      <Link to={"/"} className="font-bold normal-case text-3xl">
         DevAdda.
       </Link>
       <div className="navbar-start w-10">
