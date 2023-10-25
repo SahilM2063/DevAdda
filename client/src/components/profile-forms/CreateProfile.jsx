@@ -1,10 +1,13 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { createProfile } from "../../actions/profile.js";
 
-const CreateProfile = (props) => {
+const CreateProfile = ({ createProfile }) => {
+  const navigate = useNavigate();
   const [formdata, setFormData] = useState({
     company: "",
     website: "",
@@ -38,11 +41,11 @@ const CreateProfile = (props) => {
   } = formdata;
 
   const onchange = (e) =>
-    setFormData({ ...formdata, [e.target.name]: [e.target.value] });
+    setFormData({ ...formdata, [e.target.name]: e.target.value });
 
   const onsubmit = (e) => {
     e.preventDefault();
-    console.log(e);
+    createProfile(formdata, navigate);
   };
 
   return (
@@ -60,7 +63,7 @@ const CreateProfile = (props) => {
               value={status}
               onChange={(e) => onchange(e)}
             >
-              <option disabled selected value={"none"}>
+              <option disabled selected>
                 Select your profession
               </option>
               <option value={"Manager"}>Manager</option>
@@ -272,6 +275,8 @@ const CreateProfile = (props) => {
   );
 };
 
-CreateProfile.propTypes = {};
+CreateProfile.propTypes = {
+  createProfile: PropTypes.func.isRequired,
+};
 
-export default CreateProfile;
+export default connect(null, { createProfile })(CreateProfile);

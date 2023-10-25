@@ -31,9 +31,9 @@ const Dashboard = ({
             <>
               <h1 className="max-w-[90%] flex flex-col gap-3 md:flex-row lg:flex-row xl:flex-row items-center">
                 You haven&#39;t completed your profile ?{" "}
-                    <Link to={"/create-profile"} className="btn">
-                      Create Profile
-                    </Link>{" "}
+                <Link to={"/create-profile"} className="btn">
+                  Create Profile
+                </Link>
               </h1>
             </>
           )}
