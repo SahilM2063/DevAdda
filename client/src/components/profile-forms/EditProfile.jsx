@@ -1,12 +1,15 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { createProfile } from "../../actions/profile.js";
+import { createProfile, getcurrentprofile } from "../../actions/profile.js";
 
-const CreateProfile = ({ createProfile }) => {
+const EditProfile = ({
+  profile: { profile, loading },
+  createProfile,
+  getcurrentprofile,
+}) => {
   const navigate = useNavigate();
   const [formdata, setFormData] = useState({
     company: "",
@@ -24,6 +27,26 @@ const CreateProfile = ({ createProfile }) => {
   });
 
   const [displaySocialLinks, toggleSocialLinks] = useState(false);
+
+  useEffect(() => {
+    getcurrentprofile();
+
+    setFormData({
+      company: loading || !profile.company ? "" : profile.company,
+      website: loading || !profile.website ? "" : profile.website,
+      location: loading || !profile.location ? "" : profile.location,
+      status: loading || !profile.status ? "" : profile.status,
+      skills: loading || !profile.skills ? "" : profile.skills.join(","),
+      githubusername:
+        loading || !profile.githubusername ? "" : profile.githubusername,
+      bio: loading || !profile.bio ? "" : profile.bio,
+      twitter: loading || !profile.social ? "" : profile.social.twitter,
+      facebook: loading || !profile.social ? "" : profile.social.facebook,
+      youtube: loading || !profile.social ? "" : profile.social.youtube,
+      linkedin: loading || !profile.social ? "" : profile.social.linkedin,
+      instagram: loading || !profile.social ? "" : profile.social.instagram,
+    });
+  }, [loading]);
 
   const {
     company,
@@ -45,12 +68,12 @@ const CreateProfile = ({ createProfile }) => {
 
   const onsubmit = (e) => {
     e.preventDefault();
-    createProfile(formdata, navigate);
+    createProfile(formdata, navigate, true);
   };
 
   return (
     <div className="hero min-h-screen bg-base-200 absolute top-0 z-[-1] flex flex-col items-center pt-4 pb-8">
-      <h1 className="text-3xl font-semibold mb-4 mt-16">Profile</h1>
+      <h1 className="text-3xl font-semibold mb-4 mt-16">Edit Profile</h1>
       <div className="card h-[30%] w-[94%] xl:w-[40%] lg:w-[60%] md:w-[80%] sm:w-[80%] shadow-xl bg-base-100">
         <form className="card-body gap-4 p-5" onSubmit={(e) => onsubmit(e)}>
           <div className="form-control w-full">
@@ -173,10 +196,10 @@ const CreateProfile = ({ createProfile }) => {
                 onClick={() => toggleSocialLinks(!displaySocialLinks)}
               />
               {/* <input
-                type="checkbox"
-                className="toggle cursor-pointer"
-                onClick={() => toggleSocialLinks(!displaySocialLinks)}
-              /> */}
+                  type="checkbox"
+                  className="toggle cursor-pointer"
+                  onClick={() => toggleSocialLinks(!displaySocialLinks)}
+                /> */}
             </label>
           </div>
 
@@ -260,8 +283,11 @@ const CreateProfile = ({ createProfile }) => {
             </>
           )}
 
-          <div className="form-control mt-6">
-            <button className="btn">Create Profile</button>
+          <div className="form-control w-full mt-6 flex justify-between flex-row">
+            <button className="btn w-[48%]">Update</button>
+            <Link to={"/dashboard"} className="btn w-[48%]">
+              <button>Go back</button>
+            </Link>
           </div>
         </form>
       </div>
@@ -269,8 +295,16 @@ const CreateProfile = ({ createProfile }) => {
   );
 };
 
-CreateProfile.propTypes = {
+EditProfile.propTypes = {
   createProfile: PropTypes.func.isRequired,
+  getcurrentprofile: PropTypes.func.isRequired,
+  profile: PropTypes.object.isRequired,
 };
 
-export default connect(null, { createProfile })(CreateProfile);
+const mapStateToProps = (state) => ({
+  profile: state.profile,
+});
+
+export default connect(mapStateToProps, { createProfile, getcurrentprofile })(
+  EditProfile
+);
