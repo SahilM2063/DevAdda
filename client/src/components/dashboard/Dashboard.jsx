@@ -16,12 +16,12 @@ const Dashboard = ({
   }, []);
 
   return (
-    <div className="w-full h-full justify-center flex flex-col items-center">
+    <div className="w-full h-full flex flex-col justify-center items-center">
       {loading && profile === null ? (
         <Spinner />
       ) : (
         <>
-          <h1 className="text-2xl font-bold mb-6 mt-2">DASHBOARD</h1>
+          <h1 className="text-2xl font-bold mb-6 mt-2 menu">DASHBOARD</h1>
           <p>Hello, {user && user.name}</p>
           {profile !== null ? (
             <>
@@ -29,11 +29,11 @@ const Dashboard = ({
             </>
           ) : (
             <>
-              <h1>
+              <h1 className="max-w-[90%] flex flex-col gap-3 md:flex-row lg:flex-row xl:flex-row items-center">
                 You haven&#39;t completed your profile ?{" "}
-                <Link to={"/create-profile"} className="link">
-                  Create Profile
-                </Link>{" "}
+                    <Link to={"/create-profile"} className="btn">
+                      Create Profile
+                    </Link>{" "}
               </h1>
             </>
           )}
