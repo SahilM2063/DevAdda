@@ -4,8 +4,9 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { format } from "date-fns";
 import { Link } from "react-router-dom";
+import { deleteEducation } from "../../actions/profile";
 
-const Education = ({ education }) => {
+const Education = ({ education, deleteEducation }) => {
   const educations = education.map((edu) => (
     <tr
       key={edu.id}
@@ -26,7 +27,7 @@ const Education = ({ education }) => {
       </td>
       <td className="px-6 py-4">
         <Link
-          href="#"
+          onClick={() => deleteEducation(edu._id)}
           className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
         >
           Delete
@@ -69,6 +70,7 @@ const Education = ({ education }) => {
 
 Education.propTypes = {
   education: PropTypes.array.isRequired,
+  deleteEducation: PropTypes.func.isRequired,
 };
 
-export default connect()(Education);
+export default connect(null, { deleteEducation })(Education);

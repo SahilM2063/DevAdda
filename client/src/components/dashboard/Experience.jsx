@@ -4,8 +4,9 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { format } from "date-fns";
 import { Link } from "react-router-dom";
+import { deleteExperience } from "../../actions/profile";
 
-const Experience = ({ experience }) => {
+const Experience = ({ experience, deleteExperience }) => {
   const experiences = experience.map((exp) => (
     <tr
       key={exp.id}
@@ -25,7 +26,7 @@ const Experience = ({ experience }) => {
       </td>
       <td className="px-6 py-4">
         <Link
-          href="#"
+          onClick={() => deleteExperience(exp._id)}
           className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
         >
           Delete
@@ -65,6 +66,7 @@ const Experience = ({ experience }) => {
 
 Experience.propTypes = {
   experience: PropTypes.array.isRequired,
+  deleteExperience: PropTypes.func.isRequired,
 };
 
-export default connect()(Experience);
+export default connect(null, { deleteExperience })(Experience);

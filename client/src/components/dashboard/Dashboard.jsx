@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { getcurrentprofile } from "../../actions/profile.js";
+import { deleteAccount, getcurrentprofile } from "../../actions/profile.js";
 import Spinner from "../layout/Spinner.jsx";
 import DashboardActions from "./DashboardActions.jsx";
 import Experience from "./Experience.jsx";
@@ -11,6 +11,7 @@ import Education from "./Education.jsx";
 
 const Dashboard = ({
   getcurrentprofile,
+  deleteAccount,
   auth: { user },
   profile: { profile, loading },
 }) => {
@@ -31,6 +32,12 @@ const Dashboard = ({
               <DashboardActions />
               <Experience experience={profile.experience} />
               <Education education={profile.education} />
+              <button
+                onClick={() => deleteAccount()}
+                className="btn btn-error mt-7"
+              >
+                Delete my account
+              </button>
             </>
           ) : (
             <>
@@ -51,6 +58,7 @@ const Dashboard = ({
 Dashboard.propTypes = {
   getcurrentprofile: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
+  deleteAccount: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
 };
 
@@ -59,4 +67,6 @@ const mapStateToProps = (state) => ({
   profile: state.profile,
 });
 
-export default connect(mapStateToProps, { getcurrentprofile })(Dashboard);
+export default connect(mapStateToProps, { getcurrentprofile, deleteAccount })(
+  Dashboard
+);
