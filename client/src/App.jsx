@@ -14,10 +14,11 @@ import store from "./store";
 import setAuthToken from "./utils/setAuthToken";
 import { loaduser } from "./actions/auth";
 import CreateProfile from "./components/profile-forms/CreateProfile";
-import EditProfile from "./components/profile-forms/EditProfile";
-import AddExperience from "./components/profile-forms/AddExperience";
-import AddEducation from "./components/profile-forms/AddEducation";
-import Profiles from "./components/profiles/Profiles";
+import EditProfile from "./components/profile-forms/EditProfile.jsx";
+import AddExperience from "./components/profile-forms/AddExperience.jsx";
+import AddEducation from "./components/profile-forms/AddEducation.jsx";
+import Profiles from "./components/profiles/Profiles.jsx";
+import Profile from "./components/profile/Profile.jsx";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -38,6 +39,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/profiles" element={<Profiles />} />
+          <Route path="/profile/:id" element={<Profile />} />
           <Route element={<PrivateRoute />}>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/create-profile" element={<CreateProfile />} />

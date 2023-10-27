@@ -2,6 +2,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import Spinner from "../layout/Spinner";
 
 const ProfileItem = ({
   profile,
@@ -31,7 +32,9 @@ const ProfileItem = ({
               </p>
               <p>{location}</p>
               <div>
-                <Link className="link text-sm ">View Profile</Link>
+                <Link to={`/profile/${_id}`} className="link text-sm">
+                  View Profile
+                </Link>
               </div>
               <ul className="flex gap-2 flex-wrap">
                 {skills.slice(0, 4).map((skill, index) => (
@@ -43,7 +46,7 @@ const ProfileItem = ({
             </div>
           </div>
         ) : (
-          "No Profile Found!"
+          <Spinner />
         )}
       </div>
     </>
