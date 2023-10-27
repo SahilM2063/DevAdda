@@ -10,6 +10,9 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     return (
       <ul className="menu menu-horizontal px-1 gap-3">
         <li className="text-base">
+          <Link to={"/profiles"}>Developers</Link>
+        </li>
+        <li className="text-base">
           <Link to={"/dashboard"}>Dashboard</Link>
         </li>
         <li className="text-base">
@@ -25,7 +28,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     return (
       <ul className="menu menu-horizontal px-1 gap-3">
         <li className="text-base">
-          <Link to={"/developers"}>Developers</Link>
+          <Link to={"/profiles"}>Developers</Link>
         </li>
         <li className="text-base">
           <Link to={"/register"}>Register</Link>
@@ -43,6 +46,9 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         tabIndex={0}
         className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-xl w-32 right-3"
       >
+        <li>
+          <Link to={"/profiles"}>Developers</Link>
+        </li>
         <li>
           <Link to={"/dashboard"}>Dashboard</Link>
         </li>
