@@ -10,7 +10,7 @@ import Spinner from "../layout/Spinner.jsx";
 const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
   useEffect(() => {
     getProfiles();
-  }, []);
+  }, [getProfiles]);
 
   return (
     <>
@@ -18,8 +18,12 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
         <Spinner />
       ) : (
         <>
-          <h1 className="text-center text-3xl font-semibold my-4">Developers Profiles</h1>
-          <p className="text-center mb-8">Explore and connect with worldwide Developers</p>
+          <h1 className="text-center text-3xl font-semibold my-4">
+            Developers Profiles
+          </h1>
+          <p className="text-center mb-8">
+            Explore and connect with worldwide Developers
+          </p>
           {profiles.length > 0 ? (
             profiles.map((profile) => (
               <ProfileItem key={profile._id} profile={profile} />

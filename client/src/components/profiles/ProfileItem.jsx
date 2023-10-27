@@ -43,7 +43,7 @@ const ProfileItem = ({
             </div>
           </div>
         ) : (
-          "yo name"
+          "No Profile Found!"
         )}
       </div>
     </>
