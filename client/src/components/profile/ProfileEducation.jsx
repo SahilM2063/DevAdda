@@ -10,7 +10,7 @@ const ProfileEducation = ({
     <div className="bg-base-100 p-6 flex flex-col gap-2 items-start m-2 mb-4 rounded-md text-start">
       <h1 className="text-xl font-bold">{school}</h1>
       <p className="font-semibold">
-        Position : <span className="font-normal text-sm">{fieldofstudy}</span>
+        Field Of Study : <span className="font-normal text-sm">{fieldofstudy}</span>
       </p>
       <p className="font-semibold">
         Degree : <span className="font-normal text-sm">{degree}</span>
