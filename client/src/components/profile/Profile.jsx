@@ -8,6 +8,8 @@ import { getProfileByID } from "../../actions/profile";
 import Spinner from "../layout/Spinner";
 import ProfileTop from "./ProfileTop";
 import ProfileAbout from "./ProfileAbout";
+import ProfileExperience from "./ProfileExperience";
+import ProfileEducation from "./ProfileEducation";
 
 const Profile = ({ getProfileByID, profile: { profile, loading }, auth }) => {
   const { id } = useParams();
@@ -24,7 +26,33 @@ const Profile = ({ getProfileByID, profile: { profile, loading }, auth }) => {
           </h1>
           <ProfileTop profile={profile} />
           <ProfileAbout profile={profile} />
-          <div className="flex flex-wrap justify-center max-w-lg">
+          <div className="w-[90%] border flex flex-col lg:flex-row xl:flex-row items-start justify-between py-6 rounded-md text-center px-2">
+            <div className="w-full lg:w-[50%] xl:w-[50%]">
+              <h1 className="text-xl font-bold mb-4">Experience</h1>
+              {profile.experience.length > 0 ? (
+                <>
+                  {profile.experience.map((exp) => (
+                    <ProfileExperience key={exp._id} experience={exp} />
+                  ))}
+                </>
+              ) : (
+                <h4>No experience found!</h4>
+              )}
+            </div>
+            <div className="w-full lg:w-[50%] xl:w-[50%]">
+              <h1 className="text-xl font-bold mb-4">Education</h1>
+              {profile.education.length > 0 ? (
+                <>
+                  {profile.education.map((edu) => (
+                    <ProfileEducation key={edu._id} education={edu} />
+                  ))}
+                </>
+              ) : (
+                <h4>No education found!</h4>
+              )}
+            </div>
+          </div>
+          <div className="flex flex-wrap justify-center max-w-lg mb-8">
             {auth.isAuthenticated &&
               auth.loading === false &&
               auth.user._id === profile.user._id && (
