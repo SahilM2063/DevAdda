@@ -6,6 +6,8 @@ import { connect } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { getProfileByID } from "../../actions/profile";
 import Spinner from "../layout/Spinner";
+import ProfileTop from "./ProfileTop";
+import ProfileAbout from "./ProfileAbout";
 
 const Profile = ({ getProfileByID, profile: { profile, loading }, auth }) => {
   const { id } = useParams();
@@ -16,19 +18,25 @@ const Profile = ({ getProfileByID, profile: { profile, loading }, auth }) => {
   return (
     <>
       {profile !== null && !loading ? (
-        <>
-          <h1>{profile.user.name} s profile</h1>
-          <Link className="btn mx-2" to={"/profiles"}>
-            Go back
-          </Link>
-          {auth.isAuthenticated &&
-            auth.loading === false &&
-            auth.user._id === profile.user._id && (
-              <Link className="btn mx-2" to={"/edit-profile"}>
-                Edit Profile
-              </Link>
-            )}
-        </>
+        <div className="hero text-center min-h-screen bg-base-200 absolute top-[-1] flex flex-col pt-16 gap-6">
+          <h1 className="text-3xl font-bold">
+            {profile.user.name}&#39;s Profile
+          </h1>
+          <ProfileTop profile={profile} />
+          <ProfileAbout profile={profile} />
+          <div className="flex flex-wrap justify-center max-w-lg">
+            {auth.isAuthenticated &&
+              auth.loading === false &&
+              auth.user._id === profile.user._id && (
+                <Link className="btn mx-2" to={"/edit-profile"}>
+                  Edit Profile
+                </Link>
+              )}
+            <Link className="btn mx-2" to={"/profiles"}>
+              Go back
+            </Link>
+          </div>
+        </div>
       ) : (
         <Spinner />
       )}
