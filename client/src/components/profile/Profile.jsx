@@ -10,6 +10,7 @@ import ProfileTop from "./ProfileTop";
 import ProfileAbout from "./ProfileAbout";
 import ProfileExperience from "./ProfileExperience";
 import ProfileEducation from "./ProfileEducation";
+import ProfileGithub from "./ProfileGithub";
 
 const Profile = ({ getProfileByID, profile: { profile, loading }, auth }) => {
   const { id } = useParams();
@@ -51,6 +52,11 @@ const Profile = ({ getProfileByID, profile: { profile, loading }, auth }) => {
                 <h4>No education found!</h4>
               )}
             </div>
+          </div>
+          <div className="w-[90%] border py-6 rounded-md text-center px-2">
+            {profile.githubusername && (
+              <ProfileGithub username={profile.githubusername} />
+            )}
           </div>
           <div className="flex flex-wrap justify-center max-w-lg mb-8">
             {auth.isAuthenticated &&
