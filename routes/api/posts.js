@@ -133,7 +133,7 @@ router.put("/unlike/:post_id", auth, async (req, res) => {
         const post = await Post.findById(req.params.post_id);
 
         // check if post had been already liked
-        if (post.likes.filter(like => like.user.toString() === req.user.id).length = 0) {
+        if (post.likes.filter(like => like.user.toString() === req.user.id).length === 0) {
             return res.status(400).json({ msg: "Post has not yet been liked." });
         }
 
