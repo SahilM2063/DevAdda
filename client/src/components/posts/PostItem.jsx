@@ -15,16 +15,19 @@ const PostItem = ({
 }) => {
   useEffect(() => {}, []);
   return (
-    <div className="card w-[100%] xl:w-[40%] lg:w-[60%] md:w-[80%] sm:w-[80%] flex flex-col sm:flex-row md:flex-row lg:flex-row xl:flex-row bg-base-100 shadow-xl items-center justify-center my-3 py-2">
-      <div className="flex flex-col justify-evenly px-6 gap-4 items-center">
+    <div className="card w-[100%] xl:w-[40%] lg:w-[60%] md:w-[80%] sm:w-[80%] flex flex-col sm:flex-row md:flex-row lg:flex-row xl:flex-row bg-base-100 shadow-xl items-center justify-center my-3 mb-6">
+      <Link
+        to={`/profile/${user}`}
+        className="flex flex-col justify-evenly py-4 px-6 gap-4 items-center flex-wrap"
+      >
         <img
           src={avatar}
           alt="default User"
-          className="rounded-[50%] w-[40%] sm:w-[280px] md:w-[300px]"
+          className="rounded-[50%] w-[40%] sm:w-[240px] md:w-[200px] lg:w-[180px]"
         />
         <h1>{name}</h1>
-      </div>
-      <div className="card-body text-start self-start gap-4">
+      </Link>
+      <div className="card-body text-start self-start gap-4 w-[100%]">
         <p className="text-sm">{text}</p>
         <p className="text-sm opacity-50">
           Posted on{" "}

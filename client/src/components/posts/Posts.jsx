@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import Spinner from "../layout/Spinner.jsx";
 import { getPosts } from "../../actions/post.js";
 import PostItem from "./PostItem.jsx";
+import PostForm from "./PostForm.jsx";
 
 const Posts = ({ getPosts, post: { loading, posts } }) => {
   useEffect(() => {
@@ -18,6 +19,7 @@ const Posts = ({ getPosts, post: { loading, posts } }) => {
         <>
           <div className="hero text-center min-h-screen bg-base-200 absolute top-[-1] flex flex-col pt-10 gap-6">
             <h1 className="text-3xl font-bold">Welcome to community</h1>
+            <PostForm />
             {posts.length > 0 ? (
               <>
                 {posts.map((post) => (

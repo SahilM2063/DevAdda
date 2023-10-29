@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import axios from "axios";
 import { setAlert } from "./alert.js"
-import { DELETE_POST, GET_POSTS, POST_ERROR, UPDATE_LIKES } from "./types";
+import { ADD_POST, DELETE_POST, GET_POSTS, POST_ERROR, UPDATE_LIKES } from "./types";
 
 
 // get posts
@@ -61,7 +61,7 @@ export const removeLike = (postId) => async dispatch => {
 // delete post
 export const deletePost = (postId) => async dispatch => {
     try {
-        const res = await axios.delete(`/api/posts/${postId}`);
+        await axios.delete(`/api/posts/${postId}`);
 
         dispatch({
             type: DELETE_POST,
@@ -69,6 +69,32 @@ export const deletePost = (postId) => async dispatch => {
         });
 
         dispatch(setAlert("Post deleted successfully", "success"));
+    } catch (err) {
+        dispatch({
+            type: POST_ERROR,
+            payload: { msg: err.response.statusText, status: err.response.status }
+        })
+    }
+}
+
+
+// add post
+export const addPost = (formdata) => async dispatch => {
+    const config = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+
+    try {
+        const res = await axios.post('/api/posts', formdata, config);
+
+        dispatch({
+            type: ADD_POST,
+            payload: res.data
+        });
+
+        dispatch(setAlert("Post created", "success"));
     } catch (err) {
         dispatch({
             type: POST_ERROR,
