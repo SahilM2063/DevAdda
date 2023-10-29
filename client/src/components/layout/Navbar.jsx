@@ -13,6 +13,9 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
           <Link to={"/profiles"}>Developers</Link>
         </li>
         <li className="text-base">
+          <Link to={"/posts"}>Posts</Link>
+        </li>
+        <li className="text-base">
           <Link to={"/dashboard"}>Dashboard</Link>
         </li>
         <li className="text-base">
@@ -48,6 +51,9 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
       >
         <li>
           <Link to={"/profiles"}>Developers</Link>
+        </li>
+        <li>
+          <Link to={"/posts"}>Posts</Link>
         </li>
         <li>
           <Link to={"/dashboard"}>Dashboard</Link>

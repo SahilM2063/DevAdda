@@ -19,6 +19,7 @@ import AddExperience from "./components/profile-forms/AddExperience.jsx";
 import AddEducation from "./components/profile-forms/AddEducation.jsx";
 import Profiles from "./components/profiles/Profiles.jsx";
 import Profile from "./components/profile/Profile.jsx";
+import Posts from "./components/posts/Posts";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -46,6 +47,7 @@ const App = () => {
             <Route path="/edit-profile" element={<EditProfile />} />
             <Route path="/add-experience" element={<AddExperience />} />
             <Route path="/add-education" element={<AddEducation />} />
+            <Route path="/posts" element={<Posts />} />
           </Route>
         </Routes>
       </Router>

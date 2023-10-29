@@ -41,7 +41,7 @@ const ProfileGithub = ({ getGithubRepos, username, repos }) => {
                   <li className="badge w-full rounded-sm bg-[#5C5470] border-[#5C5470]">
                     Watchers : {repo.watchers_count}
                   </li>
-                  <li className="badge w-full rounded-sm bg-[#B9B4C7] border-[#B9B4C7]">
+                  <li className="badge w-full rounded-sm bg-[#393646] border-[#393646]">
                     Forks : {repo.forks_count}
                   </li>
                 </ul>
