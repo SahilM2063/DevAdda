@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import axios from "axios";
 import { setAlert } from "./alert.js"
-import { ADD_POST, DELETE_POST, GET_POSTS, POST_ERROR, UPDATE_LIKES } from "./types";
+import { ADD_POST, DELETE_POST, GET_POST, GET_POSTS, POST_ERROR, UPDATE_LIKES } from "./types";
 
 
 // get posts
@@ -95,6 +95,25 @@ export const addPost = (formdata) => async dispatch => {
         });
 
         dispatch(setAlert("Post created", "success"));
+    } catch (err) {
+        dispatch({
+            type: POST_ERROR,
+            payload: { msg: err.response.statusText, status: err.response.status }
+        })
+    }
+}
+
+
+
+// get post
+export const getPost = (id) => async dispatch => {
+    try {
+        const res = await axios.get(`/api/posts/${id}`);
+
+        dispatch({
+            type: GET_POST,
+            payload: res.data
+        })
     } catch (err) {
         dispatch({
             type: POST_ERROR,
