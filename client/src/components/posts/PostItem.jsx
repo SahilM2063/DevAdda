@@ -4,11 +4,12 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { format } from "date-fns";
-import { addLike, removeLike } from "../../actions/post.js";
+import { addLike, removeLike, deletePost } from "../../actions/post.js";
 
 const PostItem = ({
   addLike,
   removeLike,
+  deletePost,
   auth,
   post: { _id, name, text, user, avatar, likes, comments, date },
 }) => {
@@ -89,7 +90,7 @@ const PostItem = ({
             </Link>
           </div>
           {!auth.loading && user === auth.user._id && (
-            <button className="btn">
+            <button className="btn" onClick={(e) => deletePost(_id)}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
@@ -117,10 +118,13 @@ PostItem.propTypes = {
   auth: PropTypes.object.isRequired,
   addLike: PropTypes.func.isRequired,
   removeLike: PropTypes.func.isRequired,
+  deletePost: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, { addLike, removeLike })(PostItem);
+export default connect(mapStateToProps, { addLike, removeLike, deletePost })(
+  PostItem
+);
