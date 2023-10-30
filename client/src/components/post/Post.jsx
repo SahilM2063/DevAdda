@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import PostItem from "../posts/PostItem.jsx";
 import CommentForm from "./CommentForm.jsx";
+import CommentItem from "./CommentItem.jsx";
 
 const Post = ({ getPost, post: { post, loading } }) => {
   const { id } = useParams();
@@ -16,13 +17,19 @@ const Post = ({ getPost, post: { post, loading } }) => {
   return loading || post === null ? (
     <Spinner />
   ) : (
-    <>
+    <div className="hero text-center min-h-screen bg-base-200 absolute top-[-1] flex flex-col pt-10 gap-3">
+      <PostItem post={post} showActions={false} />
+      <CommentForm postId={post._id} />
+      <div >
+        <h1 className="text-2xl font-semibold text-center my-4">Comments</h1>
+        {post.comments.map((comment) => (
+          <CommentItem key={comment._id} comment={comment} postId={post._id} />
+        ))}
+      </div>
       <Link to={"/posts"} className="btn">
         Go back
       </Link>
-      <PostItem post={post} showActions={false} />
-      <CommentForm postId={post._id} />
-    </>
+    </div>
   );
 };
 
