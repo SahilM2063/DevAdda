@@ -6,6 +6,7 @@ import Spinner from "../layout/Spinner.jsx";
 import { connect } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import PostItem from "../posts/PostItem.jsx";
+import CommentForm from "./CommentForm.jsx";
 
 const Post = ({ getPost, post: { post, loading } }) => {
   const { id } = useParams();
@@ -16,8 +17,11 @@ const Post = ({ getPost, post: { post, loading } }) => {
     <Spinner />
   ) : (
     <>
-      <Link to={"/posts"} className="btn">Go back</Link>
+      <Link to={"/posts"} className="btn">
+        Go back
+      </Link>
       <PostItem post={post} showActions={false} />
+      <CommentForm postId={post._id} />
     </>
   );
 };
