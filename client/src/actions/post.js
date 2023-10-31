@@ -60,20 +60,22 @@ export const removeLike = (postId) => async dispatch => {
 
 // delete post
 export const deletePost = (postId) => async dispatch => {
-    try {
-        await axios.delete(`/api/posts/${postId}`);
+    if (window.confirm("You really want to delete this post ?")) {
+        try {
+            await axios.delete(`/api/posts/${postId}`);
 
-        dispatch({
-            type: DELETE_POST,
-            payload: postId
-        });
+            dispatch({
+                type: DELETE_POST,
+                payload: postId
+            });
 
-        dispatch(setAlert("Post deleted successfully", "success"));
-    } catch (err) {
-        dispatch({
-            type: POST_ERROR,
-            payload: { msg: err.response.statusText, status: err.response.status }
-        })
+            dispatch(setAlert("Post deleted successfully", "success"));
+        } catch (err) {
+            dispatch({
+                type: POST_ERROR,
+                payload: { msg: err.response.statusText, status: err.response.status }
+            })
+        }
     }
 }
 
@@ -150,20 +152,22 @@ export const addComment = (postId, formdata) => async dispatch => {
 
 // delete comment
 export const deleteComment = (postId, commentId) => async dispatch => {
+    if (window.confirm("You really want to delete this comment ?")) {
+        try {
+            const res = await axios.delete(`/api/posts/${postId}/${commentId}`);
 
-    try {
-        const res = await axios.delete(`/api/posts/${postId}/${commentId}`);
+            dispatch({
+                type: REMOVE_COMMENT,
+                payload: commentId
+            });
 
-        dispatch({
-            type: REMOVE_COMMENT,
-            payload: commentId
-        });
+            dispatch(setAlert("Comment Removed", "success"));
+        } catch (err) {
+            dispatch({
+                type: POST_ERROR,
+                payload: { msg: err.response.statusText, status: err.response.status }
+            })
+        }
 
-        dispatch(setAlert("Comment Removed", "success"));
-    } catch (err) {
-        dispatch({
-            type: POST_ERROR,
-            payload: { msg: err.response.statusText, status: err.response.status }
-        })
     }
 }
