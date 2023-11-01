@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addPost } from "../../actions/post.js";
+import { TbEdit } from "react-icons/tb";
 
 const PostForm = ({ addPost }) => {
   const [text, setText] = useState("");
@@ -20,7 +21,10 @@ const PostForm = ({ addPost }) => {
         >
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Enter post text</span>
+              <span className="label-text flex items-center gap-2">
+                <TbEdit />
+                Enter post text
+              </span>
             </label>
             <textarea
               placeholder="Say something"

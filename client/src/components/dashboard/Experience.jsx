@@ -6,6 +6,7 @@ import { format } from "date-fns";
 import { Link } from "react-router-dom";
 import { deleteExperience } from "../../actions/profile";
 
+
 const Experience = ({ experience, deleteExperience }) => {
   const experiences = experience.map((exp) => (
     <tr

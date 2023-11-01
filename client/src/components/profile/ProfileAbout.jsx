@@ -13,7 +13,9 @@ const ProfileAbout = ({
     <div className="w-[90%] border items-center py-6 rounded-md text-center">
       {bio && (
         <>
-          <h1 className="text-xl font-bold">{name}&#39;s bio</h1>
+          <h1 className="text-xl font-bold">
+            {name}&#39;s bio
+          </h1>
           <p className="my-6 mx-2">{bio}</p>
           <hr />
         </>

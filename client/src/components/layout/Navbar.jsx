@@ -4,22 +4,36 @@ import { Link, useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { logout } from "../../actions/auth";
 import PropTypes from "prop-types";
+import { FiLogOut } from "react-icons/fi";
+import { RxDashboard } from "react-icons/rx";
+import { BsPostcard } from "react-icons/bs";
+import { HiCode } from "react-icons/hi";
 
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const AuthLinks = () => {
     return (
       <ul className="menu menu-horizontal px-1 gap-3">
         <li className="text-base">
-          <Link to={"/profiles"}>Developers</Link>
+          <Link to={"/profiles"}>
+            <HiCode />
+            Developers
+          </Link>
         </li>
         <li className="text-base">
-          <Link to={"/posts"}>Posts</Link>
+          <Link to={"/posts"}>
+            <BsPostcard />
+            Posts
+          </Link>
         </li>
         <li className="text-base">
-          <Link to={"/dashboard"}>Dashboard</Link>
+          <Link to={"/dashboard"}>
+            <RxDashboard />
+            Dashboard
+          </Link>
         </li>
         <li className="text-base">
           <Link onClick={logout} to={"/"}>
+            <FiLogOut />
             Logout
           </Link>
         </li>
@@ -31,7 +45,10 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     return (
       <ul className="menu menu-horizontal px-1 gap-3">
         <li className="text-base">
-          <Link to={"/profiles"}>Developers</Link>
+          <Link to={"/profiles"}>
+            <HiCode />
+            Developers
+          </Link>
         </li>
         <li className="text-base">
           <Link to={"/register"}>Register</Link>
@@ -50,16 +67,29 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-xl w-32 right-3"
       >
         <li>
-          <Link to={"/profiles"}>Developers</Link>
+          <Link to={"/profiles"}>
+            {" "}
+            <HiCode />
+            Developers
+          </Link>
         </li>
         <li>
-          <Link to={"/posts"}>Posts</Link>
+          <Link to={"/posts"}>
+            {" "}
+            <BsPostcard />
+            Posts
+          </Link>
         </li>
         <li>
-          <Link to={"/dashboard"}>Dashboard</Link>
+          <Link to={"/dashboard"}>
+            {" "}
+            <RxDashboard />
+            Dashboard
+          </Link>
         </li>
         <li>
           <Link to={"/"} onClick={logout}>
+            <FiLogOut />
             Logout
           </Link>
         </li>
@@ -74,7 +104,10 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-xl w-32 right-3"
       >
         <li>
-          <Link to={"/developers"}>Developers</Link>
+          <Link to={"/developers"}>
+            <HiCode />
+            Developers
+          </Link>
         </li>
         <li>
           <Link to={"/register"}>Register</Link>

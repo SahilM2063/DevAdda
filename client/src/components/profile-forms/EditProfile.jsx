@@ -4,6 +4,20 @@ import { Link, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { createProfile, getcurrentprofile } from "../../actions/profile.js";
+import { LuPersonStanding } from "react-icons/lu";
+import { BsBuildings } from "react-icons/bs";
+import { BsGlobe } from "react-icons/bs";
+import { GoLocation } from "react-icons/go";
+import { HiOutlineStar } from "react-icons/hi";
+import { AiFillGithub } from "react-icons/ai";
+import { LiaPagerSolid } from "react-icons/lia";
+import {
+  SlSocialInstagram,
+  SlSocialFacebook,
+  SlSocialLinkedin,
+  SlSocialYoutube,
+  SlSocialTwitter,
+} from "react-icons/sl";
 
 const EditProfile = ({
   profile: { profile, loading },
@@ -78,7 +92,10 @@ const EditProfile = ({
         <form className="card-body gap-4 p-5" onSubmit={(e) => onsubmit(e)}>
           <div className="form-control w-full">
             <label className="label">
-              <span className="label-text">Your current status</span>
+              <span className="label-text flex items-center gap-2">
+                <LuPersonStanding />
+                Your current status
+              </span>
             </label>
             <select
               className="select select-bordered"
@@ -103,7 +120,10 @@ const EditProfile = ({
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Craft Your Company Name</span>
+              <span className="label-text flex items-center gap-2">
+                <BsBuildings />
+                Craft Your Company Name
+              </span>
             </label>
             <input
               type="text"
@@ -116,7 +136,10 @@ const EditProfile = ({
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Share Your Online Oasis</span>
+              <span className="label-text flex items-center gap-2">
+                <BsGlobe />
+                Share Your Online Oasis
+              </span>
             </label>
             <input
               type="text"
@@ -129,7 +152,10 @@ const EditProfile = ({
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Your Base of Operations</span>
+              <span className="label-text flex items-center gap-2">
+                <GoLocation />
+                Your Base of Operations
+              </span>
             </label>
             <input
               type="text"
@@ -142,7 +168,10 @@ const EditProfile = ({
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Showcase Your Talents</span>
+              <span className="label-text flex items-center gap-2">
+                <HiOutlineStar />
+                Showcase Your Talents
+              </span>
             </label>
             <input
               type="text"
@@ -162,7 +191,10 @@ const EditProfile = ({
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Coding Alias</span>
+              <span className="label-text flex items-center gap-2">
+                <AiFillGithub />
+                Coding Alias
+              </span>
             </label>
             <input
               type="text"
@@ -175,7 +207,10 @@ const EditProfile = ({
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Paint Your Portrait</span>
+              <span className="label-text flex items-center gap-2">
+                <LiaPagerSolid />
+                Paint Your Portrait
+              </span>
             </label>
             <textarea
               placeholder="Bio"
@@ -207,7 +242,8 @@ const EditProfile = ({
             <>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">
+                  <span className="label-text flex items-center gap-2">
+                    <SlSocialTwitter />
                     Tweeting Life&#39;s Moments
                   </span>
                 </label>
@@ -222,7 +258,8 @@ const EditProfile = ({
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">
+                  <span className="label-text flex items-center gap-2">
+                    <SlSocialFacebook />
                     Connecting Lives, One Profile at a Time
                   </span>
                 </label>
@@ -237,7 +274,8 @@ const EditProfile = ({
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">
+                  <span className="label-text flex items-center gap-2">
+                    <SlSocialYoutube />
                     Lights, Camera, Action, and So Much More
                   </span>
                 </label>
@@ -252,7 +290,8 @@ const EditProfile = ({
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">
+                  <span className="label-text flex items-center gap-2">
+                    <SlSocialLinkedin />
                     Building Professional Bridges
                   </span>
                 </label>
@@ -267,7 +306,8 @@ const EditProfile = ({
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">
+                  <span className="label-text flex items-center gap-2">
+                    <SlSocialInstagram />
                     Capturing Life&#39;s Moments in Pixels
                   </span>
                 </label>

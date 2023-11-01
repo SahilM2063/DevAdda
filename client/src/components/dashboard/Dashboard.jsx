@@ -8,6 +8,9 @@ import Spinner from "../layout/Spinner.jsx";
 import DashboardActions from "./DashboardActions.jsx";
 import Experience from "./Experience.jsx";
 import Education from "./Education.jsx";
+import { PiHandWaving } from "react-icons/pi";
+import { MdDeleteOutline } from "react-icons/md/index.esm.js";
+import { BsQuestionOctagon } from "react-icons/bs";
 
 const Dashboard = ({
   getcurrentprofile,
@@ -26,7 +29,10 @@ const Dashboard = ({
       ) : (
         <>
           <h1 className="text-2xl font-bold mb-6 mt-2 menu">DASHBOARD</h1>
-          <p className="font-semibold text-xl">Hello, {user && user.name}</p>
+          <p className="font-semibold text-xl flex items-center gap-2">
+            <PiHandWaving />
+            Hello, {user && user.name}
+          </p>
           {profile !== null ? (
             <>
               <DashboardActions />
@@ -34,14 +40,16 @@ const Dashboard = ({
               <Education education={profile.education} />
               <button
                 onClick={() => deleteAccount()}
-                className="btn btn-error mt-7"
+                className="btn btn-error mt-7 flex items-center gap-2 mb-6"
               >
+                <MdDeleteOutline />
                 Delete my account
               </button>
             </>
           ) : (
             <>
               <h1 className="max-w-[90%] flex flex-col gap-3 md:flex-row lg:flex-row xl:flex-row items-center">
+                <BsQuestionOctagon />
                 You haven&#39;t completed your profile ?{" "}
                 <Link to={"/create-profile"} className="btn">
                   Create Profile

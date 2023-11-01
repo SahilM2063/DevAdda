@@ -4,6 +4,11 @@ import PropTypes from "prop-types";
 import { Link, useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { addEducation } from "../../actions/profile.js";
+import { LuSchool } from "react-icons/lu";
+import { AiOutlineFileDone } from "react-icons/ai";
+import { LiaBookSolid } from "react-icons/lia";
+import { LiaPagerSolid } from "react-icons/lia";
+import { BsCalendarDate } from "react-icons/bs";
 
 const AddEducation = ({ addEducation }) => {
   const navigate = useNavigate();
@@ -36,7 +41,10 @@ const AddEducation = ({ addEducation }) => {
         <form className="card-body gap-4 p-5" onSubmit={(e) => onsubmit(e)}>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Where Knowledge Was Unlocked</span>
+              <span className="label-text flex items-center gap-2">
+                <LuSchool />
+                Where Knowledge Was Unlocked
+              </span>
             </label>
             <input
               type="text"
@@ -49,7 +57,10 @@ const AddEducation = ({ addEducation }) => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">My Academic Achievement</span>
+              <span className="label-text flex items-center gap-2">
+                <AiOutlineFileDone />
+                My Academic Achievement
+              </span>
             </label>
             <input
               type="text"
@@ -62,7 +73,10 @@ const AddEducation = ({ addEducation }) => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Exploring My Passion</span>
+              <span className="label-text flex items-center gap-2">
+                <LiaBookSolid />
+                Exploring My Passion
+              </span>
             </label>
             <input
               type="text"
@@ -75,7 +89,8 @@ const AddEducation = ({ addEducation }) => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">
+              <span className="label-text flex items-center gap-2">
+                <BsCalendarDate />
                 The Academic Journey Begins &#40;Start date&#41;
               </span>
             </label>
@@ -106,7 +121,9 @@ const AddEducation = ({ addEducation }) => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">A Chapter of Growth &#40;End date&#41;</span>
+              <span className="label-text flex items-center gap-2">
+                <BsCalendarDate />A Chapter of Growth &#40;End date&#41;
+              </span>
             </label>
             <input
               type="date"
@@ -120,7 +137,8 @@ const AddEducation = ({ addEducation }) => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">
+              <span className="label-text flex items-center gap-2">
+                <LiaPagerSolid />
                 Summarizing My Academic Adventure
               </span>
             </label>

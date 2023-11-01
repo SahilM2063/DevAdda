@@ -21,7 +21,7 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
           <h1 className="text-center text-3xl font-semibold my-4">
             Developers Profiles
           </h1>
-          <p className="text-center mb-8">
+          <p className="text-center mb-8 ">
             Explore and connect with worldwide Developers
           </p>
           {profiles.length > 0 ? (

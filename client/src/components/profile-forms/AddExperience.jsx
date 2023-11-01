@@ -4,6 +4,11 @@ import PropTypes from "prop-types";
 import { Link, useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { addExperience } from "../../actions/profile.js";
+import { LuPersonStanding } from "react-icons/lu";
+import { BsBuildings } from "react-icons/bs";
+import { GoLocation } from "react-icons/go";
+import { BsCalendarDate } from "react-icons/bs";
+import { LiaPagerSolid } from "react-icons/lia";
 
 const AddExperience = ({ addExperience }) => {
   const navigate = useNavigate();
@@ -35,7 +40,10 @@ const AddExperience = ({ addExperience }) => {
         <form className="card-body gap-4 p-5" onSubmit={(e) => onsubmit(e)}>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">My Professional Hat</span>
+              <span className="label-text flex items-center gap-2">
+                <LuPersonStanding />
+                My Professional Hat
+              </span>
             </label>
             <input
               type="text"
@@ -48,7 +56,10 @@ const AddExperience = ({ addExperience }) => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">My Professional Playground</span>
+              <span className="label-text flex items-center gap-2">
+                <BsBuildings />
+                My Professional Playground
+              </span>
             </label>
             <input
               type="text"
@@ -61,7 +72,10 @@ const AddExperience = ({ addExperience }) => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Where I Flourished</span>
+              <span className="label-text flex items-center gap-2">
+                <GoLocation />
+                Where I Flourished
+              </span>
             </label>
             <input
               type="text"
@@ -74,7 +88,8 @@ const AddExperience = ({ addExperience }) => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">
+              <span className="label-text flex items-center gap-2">
+                <BsCalendarDate />
                 The Starting Point of My Career &#40;Start date&#41;
               </span>
             </label>
@@ -105,7 +120,9 @@ const AddExperience = ({ addExperience }) => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">A Journey Worth Remembering &#40;End date&#41;</span>
+              <span className="label-text flex items-center gap-2">
+                <BsCalendarDate />A Journey Worth Remembering &#40;End date&#41;
+              </span>
             </label>
             <input
               type="date"
@@ -119,7 +136,10 @@ const AddExperience = ({ addExperience }) => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">My Work, My Story</span>
+              <span className="label-text flex items-center gap-2">
+                <LiaPagerSolid />
+                My Work, My Story
+              </span>
             </label>
             <textarea
               placeholder="Job Description"

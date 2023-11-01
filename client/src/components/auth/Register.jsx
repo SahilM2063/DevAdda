@@ -9,9 +9,12 @@ import axios from "axios";
 import { setAlert } from "../../actions/alert.js";
 import { register } from "../../actions/auth.js";
 import PropTypes from "prop-types";
+import { BiUser } from "react-icons/bi";
+import { HiOutlineMail } from "react-icons/hi";
+import { BiLockAlt } from "react-icons/bi";
 
 const Register = ({ setAlert, register, isAuthenticated }) => {
-  const [formData, setFormData] = useState({ 
+  const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
@@ -62,12 +65,15 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 
   return (
     <div className="hero min-h-screen bg-base-200 absolute top-0 z-[-1] flex flex-col items-center justify-center pt-16 ">
-      <h1 className="text-3xl font-semibold mb-4">Register</h1>
+      <h1 className="text-3xl font-semibold mb-4 flex items-center gap-4"><BiUser/>Register</h1>
       <div className="card h-[30%] w-[94%] xl:w-[40%] lg:w-[60%] md:w-[80%] sm:w-[80%] shadow-xl bg-base-100">
         <form className="card-body gap-0 p-5" onSubmit={(e) => onsubmit(e)}>
           <div className="form-control">
             <label className="label">
-              <span className="label-text leading-4">Name</span>
+              <span className="label-text leading-4 flex items-center gap-1">
+                <BiUser />
+                Name
+              </span>
             </label>
             <input
               type="text"
@@ -80,7 +86,10 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Email</span>
+              <span className="label-text flex items-center gap-1">
+                <HiOutlineMail />
+                Email
+              </span>
             </label>
             <input
               type="email"
@@ -93,7 +102,10 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Password</span>
+              <span className="label-text flex items-center gap-1">
+                <BiLockAlt />
+                Password
+              </span>
             </label>
             <input
               type="password"
@@ -106,7 +118,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Confirm Password</span>
+              <span className="label-text flex items-center gap-1"><BiLockAlt />Confirm Password</span>
             </label>
             <input
               type="password"

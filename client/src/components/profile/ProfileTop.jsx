@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import PropTypes from "prop-types";
+import { GoLocation } from "react-icons/go";
 
 const ProfileTop = ({
   profile: {
@@ -24,7 +25,12 @@ const ProfileTop = ({
         {status} at {company && <span className="font-bold">{company}</span>}
       </h4>
       <h5 className="text-md font-medium">
-        {location && <span>{location}</span>}
+        {location && (
+          <span className="flex items-center gap-2">
+            <GoLocation />
+            {location}
+          </span>
+        )}
       </h5>
       <div className="flex justify-between max-w-md">
         <ul className="flex flex-row justify-center gap-4 flex-wrap">
