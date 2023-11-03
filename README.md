@@ -1,6 +1,8 @@
-# devAdda - Your Developer Community
+# DevAdda - Your Developer Community
 
-Welcome to devAdda, the place for developers to connect, collaborate, and share their knowledge.
+Welcome to DevAdda, the place for developers to connect, collaborate, and share their knowledge.
+
+![DevAdda Logo](devadda-logo.png)
 
 ## Table of Contents
 
@@ -9,25 +11,25 @@ Welcome to devAdda, the place for developers to connect, collaborate, and share 
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
+- [Technologies Used](#technologies-used)
 - [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+- [Contact](#contact)
 
 ## Introduction
 
-devAdda is a developer community platform where developers can create profiles, share their knowledge, and connect with other like-minded individuals. This README file will guide you on how to get started with devAdda.
+DevAdda is a developer community platform where developers can create profiles, share their knowledge, and connect with other like-minded individuals. This README file will guide you on how to get started with DevAdda.
 
 ## Features
 
-- **User Profiles:** Create and customize your developer profile.
-- **Post Creation:** Share your thoughts, ideas, and knowledge with the community.
-- **Connect with Developers:** Find and connect with other developers to expand your network.
-- **Comment and Collaborate:** Engage in discussions and collaborations on posts.
-- **User Authentication:** Securely manage your account with user authentication.
+- 💼 **User Profiles:** Create and customize your developer profile.
+- 📝 **Post Creation:** Share your thoughts, ideas, and knowledge with the community.
+- 🔗 **Connect with Developers:** Find and connect with other developers to expand your network.
+- 💬 **Comment and Collaborate:** Engage in discussions and collaborations on posts.
+- 🔐 **User Authentication:** Securely manage your account with user authentication.
 
 ## Getting Started
 
-Follow these instructions to set up and run devAdda on your local machine.
+Follow these instructions to set up and run DevAdda on your local machine.
 
 ### Prerequisites
 
@@ -42,12 +44,12 @@ Before you begin, ensure you have the following requirements:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/devadda.git
+   git clone https://github.com/SahilM2063/Devadda.git
    
 2. Change your working directory to the project folder:
    
    ```bash
-   cd devadda
+   cd DevAdda
    
 3. Install the project dependencies
 
@@ -61,7 +63,7 @@ Before you begin, ensure you have the following requirements:
    MONGODB_URI=your_mongodb_connection_string
    SESSION_SECRET=your_session_secret
 
-5. Start the devAdda server
+5. Start the DevAdda server
 
    ```bash
    npm run dev
