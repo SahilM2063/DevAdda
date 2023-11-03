@@ -37,11 +37,37 @@ Before you begin, ensure you have the following requirements:
 - [MongoDB](https://www.mongodb.com/) installed and running.
 - A modern web browser.
 
-## Installation
+### Installation
 
-1. Clone the repository: `git clone https://github.com/your-username/devadda.git`
-2. Change into the project directory: `cd devadda`
-3. Install project dependencies: `npm install`
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/yourusername/devadda.git
+   
+2. Change your working directory to the project folder:
+   
+   ```bash
+   cd devadda
+   
+3. Install the project dependencies
+
+   ```bash
+   npm install
+
+4. Create a .env file in the project root and configure it with your environment variables. You can start with the following template
+
+   ```bash
+   PORT=3000
+   MONGODB_URI=your_mongodb_connection_string
+   SESSION_SECRET=your_session_secret
+
+5. Start the devAdda server
+
+   ```bash
+   npm run dev
+
+
+   
 
 ## Usage
 
