@@ -68,19 +68,20 @@ Before you begin, ensure you have the following requirements:
    
 ## Technologies Used
 
-- Frontend: HTML, CSS, JavaScript, React.js
-- Backend: Node.js, Express.js
-- Database: MongoDB
-- Authentication: JSON Web Tokens (JWT)
+- 💻 Frontend: HTML, CSS, JavaScript, React.js
+- 🚀 Backend: Node.js, Express.js
+- 📦 Database: MongoDB
+- 🔐 Authentication: JSON Web Tokens (JWT)
 
 ## Usage
 
-- Sign up or log in to your devAdda account.
-- Create or edit your developer profile.
-- Share your knowledge and ideas by creating posts.
-- Connect with other developers in the community.
-- Explore, comment, and collaborate on posts shared by others.
+- 👤 Sign up or log in to your DevAdda account.
+- 📋 Create or edit your developer profile.
+- ✏️ Share your knowledge and ideas by creating posts.
+- 🤝 Connect with other developers in the community.
+- 🔍 Explore, comment, and collaborate on posts shared by others.
 
 ## Contact
 
-If you have any questions or suggestions, feel free to reach out makadiasahil9846@gmail.com
+If you have any questions or suggestions, feel free to reach out at [makadiasahil9846@gmail.com](mailto:makadiasahil9846@gmail.com).
+
