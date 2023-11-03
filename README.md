@@ -23,7 +23,6 @@ devAdda is a developer community platform where developers can create profiles, 
 - **Post Creation:** Share your thoughts, ideas, and knowledge with the community.
 - **Connect with Developers:** Find and connect with other developers to expand your network.
 - **Comment and Collaborate:** Engage in discussions and collaborations on posts.
-- **Search Functionality:** Easily find developers and posts of interest.
 - **User Authentication:** Securely manage your account with user authentication.
 
 ## Getting Started
