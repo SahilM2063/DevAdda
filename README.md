@@ -2,8 +2,6 @@
 
 Welcome to DevAdda, the place for developers to connect, collaborate, and share their knowledge.
 
-![DevAdda Logo](devadda-logo.png)
-
 ## Table of Contents
 
 - [Introduction](#introduction)
