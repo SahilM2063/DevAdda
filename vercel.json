@@ -1,16 +1,6 @@
 {
     "version": 2,
     "name": "DevAdda",
-    "builds": [
-        {
-            "src": "server.js",
-            "use": "@vercel/node"
-        },
-        {
-            "src": "client/**/*",
-            "use": "@vercel/static"
-        }
-    ],
     "routes": [
         {
             "src": "/api/(.*)",
