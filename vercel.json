@@ -2,26 +2,26 @@
     "version": 2,
     "builds": [
         {
-            "src": "Client/**/*",
+            "source": "Client/**/*",
             "use": "@vercel/static"
         },
         {
-            "src": "server.js",
+            "source": "server.js",
             "use": "@vercel/node"
         },
         {
-            "src": "vercel-postbuild",
+            "source": "vercel-postbuild",
             "use": "@vercel/node"
         }
     ],
     "routes": [
         {
-            "src": "/api/(.*)",
-            "dest": "server.js"
+            "source": "/api/(.*)",
+            "destination": "server.js"
         },
         {
-            "src": "/(.*)",
-            "dest": "Client/$1"
+            "source": "/(.*)",
+            "destination": "Client/$1"
         }
     ],
     "env": {
