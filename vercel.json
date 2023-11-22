@@ -2,14 +2,29 @@
     "version": 2,
     "builds": [
         {
+            "src": "Client/**/*",
+            "use": "@vercel/static"
+        },
+        {
             "src": "server.js",
+            "use": "@vercel/node"
+        },
+        {
+            "src": "vercel-postbuild",
             "use": "@vercel/node"
         }
     ],
     "routes": [
         {
-            "src": "/(.*)",
+            "src": "/api/(.*)",
             "dest": "server.js"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "Client/$1"
         }
-    ]
+    ],
+    "env": {
+        "NODE_ENV": "production"
+    }
 }
