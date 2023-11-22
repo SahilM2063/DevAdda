@@ -1,6 +1,15 @@
 {
     "version": 2,
-    "name": "DevAdda",
+    "builds": [
+        {
+            "src": "client/**/*",
+            "use": "@vercel/static"
+        },
+        {
+            "src": "server.js",
+            "use": "@vercel/node"
+        }
+    ],
     "routes": [
         {
             "src": "/api/(.*)",
@@ -10,5 +19,8 @@
             "src": "/(.*)",
             "dest": "client/$1"
         }
-    ]
+    ],
+    "env": {
+        "NODE_ENV": "production"
+    }
 }
