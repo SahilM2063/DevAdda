@@ -1,0 +1,6 @@
+{
+    "mongoURI": "mongodb+srv://SahilMakadia:Sahil..DevAdda@devaddacluster.cxikmiv.mongodb.net/?retryWrites=true&w=majority",
+    "jwtToken": "OnePieceIsReal",
+    "githubClientId": "e58ae6c35636a4da2ddd",
+    "githubSecret":"66837dd3f815d32511d1e513fc5b893aeb44e7bd"
+}
